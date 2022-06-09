@@ -1,7 +1,7 @@
 ## Project Name: Your Technical Advisor 
 
 
-#### IdeaIdea:
+#### Idea:
 The idea, quite simply, is a website or a system that provides a service to anyone who uses technology in its various forms, and this service is either by consulting technology specialists or by providing technical service through technicians or specialists.
 This site or system is considered a link between the customer and the service provider, whether a specialist or a technician.
 
@@ -46,7 +46,7 @@ From this point of view, I was inspired by this idea, I noticed the many questio
 
 
 
-####  System admin: System admin:
+####  System admin:
 - Evaluation of service providers and their accreditation on the website.
 - Deleting and adding users, whether customers or service providers.
 - Determine the areas and specializations for service providers.
