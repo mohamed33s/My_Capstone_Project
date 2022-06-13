@@ -1,3 +1,7 @@
+from ast import Or
 from django.contrib import admin
+from .models import ClientProfile, Orders , Review
 
-# Register your models here.
+admin.site.register(ClientProfile)
+admin.site.register(Orders)
+admin.site.register(Review)
