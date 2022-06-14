@@ -7,11 +7,11 @@ class ClientProfile(models.Model):
     User_model = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     Birth = models.DateField(blank= False)
     Phone = models.CharField(max_length=12, blank= False)
-    User_image = models.ImageField(blank= True)
+    User_image = models.URLField(blank= True)
 
-    def __str__(self):
-        return self.Phone
 
+    def __int__(self):
+        return self.id
 
 
 class Orders(models.Model):
