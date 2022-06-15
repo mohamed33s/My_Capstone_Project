@@ -1,4 +1,4 @@
-from ast import Or
+#from ast import Or
 from django.contrib import admin
 from .models import ClientProfile, Orders , Review
 

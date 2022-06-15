@@ -87,4 +87,4 @@ From this point of view, I was inspired by this idea, I noticed the many questio
 
 
 #### Link my project:
-https://technical-advisors.herokuapp.com/
+https://technical-advisor.herokuapp.com/

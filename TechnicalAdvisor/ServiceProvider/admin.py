@@ -1,4 +1,4 @@
-import site
+#import site
 from django.contrib import admin
 from .models import ServiceProviderProfile ,Service
 

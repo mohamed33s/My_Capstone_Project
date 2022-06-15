@@ -22,16 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&q8+16)mb%i*%cfp9779r+_s%6f!q(61&8l!6en5-w^ck!)^ld'
+#SECRET_KEY = 'django-insecure-&q8+16)mb%i*%cfp9779r+_s%6f!q(61&8l!6en5-w^ck!)^ld'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['technical-advisors.herokuapp.com']
+ALLOWED_HOSTS = ['technical-advisor.herokuapp.com']
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -88,7 +87,8 @@ DATABASES = {
         'NAME': 'technicaladvisordb',
         'USER': 'postgres',
         'PASSWORD': '123',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -126,9 +126,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -151,3 +150,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+import dj_database_url
+DATABASES = {  'default': dj_database_url.config() }
