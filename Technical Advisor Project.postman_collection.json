@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "83250877-8078-4f48-9d2a-b5afaf463af5",
+		"name": "Technical Advisor Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client Options",
+			"item": [
+				{
+					"name": "Client Profile",
+					"item": [
+						{
+							"name": "Add profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MzE5MTE0LCJpYXQiOjE2NTUyMzI3MTQsImp0aSI6IjMxZjg1YTY2YTQwOTQyNDA5NzQyNGY3MWM3MmVjY2I2IiwidXNlcl9pZCI6Nn0.o5uSXd7-eqd_67fA9_OsfoAUN81rLwwoQfkFWbfc3OI",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"User_model\": 6,\n    \"Birth\": \"1995-11-18\",\n    \"Phone\": \"0500303116\"\n      \n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/client-profile/add",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"client-profile",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Info profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/client-profile/info",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"client-profile",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update profile",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"User_model\": 6,\n    \"Birth\": \"1995-11-18\",\n    \"Phone\": \"05003031166\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/client-profile/update/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"client-profile",
+										"update",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete profile",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/client-profile/delete/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"client-profile",
+										"delete",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/client-search/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"client-search",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ordes",
+					"item": [
+						{
+							"name": "Add order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n\n{\n    \"Sender_order\" :6,\n    \"Recipient_order\": 7,\n    \"Order_title\" : \"Network\",\n    \"Order_type\" :\"Advisor\",\n    \"description\" :\"d;ablvbrw; n;irnwe\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/order/add",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"order",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All order",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzMTM5LCJpYXQiOjE2NTUyMDY3MzksImp0aSI6IjI4ZThmNmE4YWZiYjRhNjE5NDE3ODUxZTMzZjgyMDI3IiwidXNlcl9pZCI6Nn0.MGuURYCWe3DOQamx-bk6GdQ7cnOgKHj4MzPCm3sS5vk",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/order/all",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"order",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete order",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/order/delete/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"order",
+										"delete",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/client/order-search/Network",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"client",
+										"order-search",
+										"Network"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reviews",
+					"item": [
+						{
+							"name": "Add review",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "All Reviews",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Review",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Service Provider Options",
+			"item": [
+				{
+					"name": "Service Provider Profile",
+					"item": [
+						{
+							"name": "Add profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MzQxMzY2LCJpYXQiOjE2NTUyNTQ5NjYsImp0aSI6IjkwZGM1NGUwMDc4YTQ0Yzk5ZmM0ZTkzMWE3ZTEyMzBlIiwidXNlcl9pZCI6Mn0.Nlos7-jjld_X1xKtzlWwejmRFs7CmRAVU-SanLSJAFE",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_model\": 2,\n    \"birth\": \"1995-07-02\",\n    \"phone\": \"0500303116\",\n    \"user_specialty\" : \"Computer Science\",\n    \"user_field\" : \"Software engineering consultant\",\n    \"Service\" : 3\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/service-provider/provider-profile/add",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"service-provider",
+										"provider-profile",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Info profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/service-provider/provider-profile/info",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"service-provider",
+										"provider-profile",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update profile",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"User_model\": 7,\n \"Birth\": \"1994-06-10\",\n \"Phone\": \"0500303006\",\n \"User_specialty\": \"computer\",\n \"User_field\": \"programmer\",\n \"User_image\": null,\n \"Service\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/service-provider/provider-profile/update/7",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"service-provider",
+										"provider-profile",
+										"update",
+										"7"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete profile",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MjkzNDc0LCJpYXQiOjE2NTUyMDcwNzQsImp0aSI6ImJiYWFjZDIzMTIyNDQ5MzE4YjIxMjRmMzU0ZjFhMWMyIiwidXNlcl9pZCI6Nn0.JE4kOp5aUZ449wM4iNAFE-qVNeIXOaTDW5idcubb8ys",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/service-provider/provider-profile/delete/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"service-provider",
+										"provider-profile",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/service-provider/provider-search/xc",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"service-provider",
+										"provider-search",
+										"xc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "Add servece",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "All servece",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Delete servece",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Search servece",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"MohammedSul\",\n    \"password\" : \"12341234\" \n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"MohammedS\",\n    \"firts_name\" : \"Mohammed\",\n    \"last_name\" : \"Sulaiman\",\n    \"email\" : \"mohammed33@aa.com\",\n    \"password\" : \"12341234\" \n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/user/all",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\n    \"first_name\": \"Khalled\", \n    \"last_name\": \"Abdullah\",\n    \"username\": \"khalledA\",\n    \"email\": \"khalleda@aaa.com\",\n    \"password\": \"12341234\",\n    \"is_staff\": false\n    \n}\n\n\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
