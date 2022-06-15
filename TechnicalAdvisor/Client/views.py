@@ -14,6 +14,8 @@ from Users.serializers import UserRegisterSerializer
 @authentication_classes([JWTAuthentication])
 def add_client_profile(request : Request):
 
+    '''Through this function the client profile is added and linked with the user model and executed authentication on the client'''
+
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -36,6 +38,8 @@ def add_client_profile(request : Request):
 @authentication_classes([JWTAuthentication])
 def list_client_profile(request : Request):
 
+    '''Through this function the client's profile is displayed and executed authentication on the client'''
+
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
     
@@ -52,11 +56,12 @@ def list_client_profile(request : Request):
 @api_view(['PUT'])
 @authentication_classes([JWTAuthentication])
 def update_client_profile(request : Request, client_profile_id):
+    '''Through this function the client profile is updated after executed authentication on the client'''
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
 
-    profile = ClientProfile.objects.get(User_model=client_profile_id)
+    profile = ClientProfile.objects.get(user_model=client_profile_id)
 
     uptade_profile = ClientProfileSerializer(instance=profile, data=request.data)
     if uptade_profile.is_valid():
@@ -76,23 +81,26 @@ def update_client_profile(request : Request, client_profile_id):
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 def delete_client_profile(request: Request, client_profile_id):
+    '''Through this function the client profile is deleted after executed authentication on the client'''
+
    
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
     
-    profile = ClientProfile.objects.get(User_model=client_profile_id)
+    profile = ClientProfile.objects.get(user_model=client_profile_id)
     profile.delete()
     return Response({"msg" : "Deleted Successfully"})
 
 
 
 @api_view(["GET"])
-def search_client(request: Request, name):
-    client = User.objects.filter(first_name= name)  #ClientProfile.objects.filter(Phone= phone ) #
+def search_client(request: Request, id):
+    '''With this function the client profile is searched by id'''
+    client =ClientProfile.objects.filter(user_model= id ) 
     if client.exists():
         data = {
         "msg": "Found it",
-        "client": UserRegisterSerializer(instance=client, many=True).data #ClientProfileSerializer(instance=client, many=True).data # 
+        "client": ClientProfileSerializer(instance=client, many=True).data 
            }
         return Response(data)
     else:
@@ -103,6 +111,8 @@ def search_client(request: Request, name):
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 def add_order(request : Request):
+    '''Through this function the order is added after executed authentication on the client'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -125,6 +135,9 @@ def add_order(request : Request):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def list_order(request : Request):
+    '''Through this function the  oders is displayed after executed authentication on the client'''
+
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -142,6 +155,8 @@ def list_order(request : Request):
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 def delete_order(request: Request, order_id):
+    '''Through this function the order is deleted after executed authentication on the client'''
+
    
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -153,7 +168,9 @@ def delete_order(request: Request, order_id):
 
 @api_view(["GET"])
 def search_orders(request: Request, title):
-    order = Orders.objects.filter(Order_title= title) 
+    '''With this function the order is searched by order title'''
+
+    order = Orders.objects.filter(order_title= title) 
     if order.exists():
         data = {
         "msg": "Found it",
@@ -170,6 +187,8 @@ def search_orders(request: Request, title):
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 def add_review(request : Request):
+    '''Through this function the review is added after executed authentication on the client'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -192,6 +211,8 @@ def add_review(request : Request):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def list_review(request : Request):
+    '''Through this function the review is displayed after executed authentication on the client'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -210,6 +231,8 @@ def list_review(request : Request):
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 def delete_review(request: Request, review_is):
+    '''Through this function the review is deleted after executed authentication on the client'''
+
    
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)

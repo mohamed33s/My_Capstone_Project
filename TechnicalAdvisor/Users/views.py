@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -11,6 +12,8 @@ from .serializers import UserRegisterSerializer
 
 @api_view(['POST'])
 def register_user(request : Request):
+    '''Through this function, the user is registered by user model in django'''
+
     user_serializer  = UserRegisterSerializer(data=request.data)
     if user_serializer.is_valid():
         new_user = User.objects.create_user(**user_serializer.data)
@@ -22,6 +25,8 @@ def register_user(request : Request):
 
 @api_view(['POST'])
 def login_user(request : Request):
+    '''Through this function, the user is logged in and a token is provided to him'''
+
     if 'username' in request.data and 'password' in request.data:
         user = authenticate(request, username=request.data['username'], password=request.data['password'])
         if user is not None:
@@ -38,6 +43,8 @@ def login_user(request : Request):
 
 @api_view(['GET'])
 def list_users(request : Request):
+    '''Through this function, view all users registered in the system'''
+    
     notes = User.objects.all()
 
     dataResponse = {

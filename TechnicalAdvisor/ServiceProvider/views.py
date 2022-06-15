@@ -15,6 +15,8 @@ from Users.serializers import UserRegisterSerializer
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 def add_provider_profile(request : Request):
+    '''Through this function the service provider profile is added and linked with the user model and executed authentication on the service provider'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -36,6 +38,8 @@ def add_provider_profile(request : Request):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def info_provider_profile(request : Request):
+    '''Through this function the service provider profile is displayed after executed authentication on the service provider'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -52,11 +56,13 @@ def info_provider_profile(request : Request):
 @api_view(['PUT'])
 @authentication_classes([JWTAuthentication])
 def update_provider_profile(request : Request, provider_profile_id):
+    '''Through this function the service provider profile is updated after executed authentication on the service provider'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
 
-    profile = ServiceProviderProfile.objects.get(User_model=provider_profile_id)
+    profile = ServiceProviderProfile.objects.get(user_model=provider_profile_id)
 
     uptade_profile = ServiceProviderProfileSerializer(instance=profile, data=request.data)
     if uptade_profile.is_valid():
@@ -76,22 +82,28 @@ def update_provider_profile(request : Request, provider_profile_id):
 @api_view(['DELETE'])
 @authentication_classes([JWTAuthentication])
 def delete_provider_profile(request: Request, provider_profile_id):
+         
+    '''Through this function the service provider profile is deleted after executed authentication on the service provider'''
+
    
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
     
-    profile = ServiceProviderProfile.objects.get(User_model=provider_profile_id)
+    profile = ServiceProviderProfile.objects.get(user_model=provider_profile_id)
     profile.delete()
     return Response({"msg" : "Deleted Successfully"})
 
 
 @api_view(["GET"])
 def search_provider(request: Request,field):
-    provider = ServiceProviderProfile.objects.filter(User_field= field ) #User.objects.filter(first_name= name)
+
+    '''With this function the service provider profile is searched by field'''
+
+    provider = ServiceProviderProfile.objects.filter(user_field= field ) 
     if provider.exists():
         data = {
         "msg": "Found it",
-        "provider":ServiceProviderProfileSerializer(instance=provider, many=True).data #UserRegisterSerializer(instance=provider, many=True).data or 
+        "provider":ServiceProviderProfileSerializer(instance=provider, many=True).data 
            }
         return Response(data)
     else:
@@ -103,38 +115,42 @@ def search_provider(request: Request,field):
 
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
-def add_servece(request : Request):
+def add_service(request : Request):
+    '''Through this function the service is added after executed authentication on the service provider'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
 
-    new_servece = ServiceSerializer(data=request.data)
-    if new_servece.is_valid():
-        new_servece.save()
+    new_service = ServiceSerializer(data=request.data)
+    if new_service.is_valid():
+        new_service.save()
         dataResponse = {
             "msg" : "Created Successfully",
-            "Your profile:" : new_servece.data
+            "Your profile:" : new_service.data
         }
         return Response(dataResponse)
     else:
-        print(new_servece.errors)
-        dataResponse = {"msg" : "couldn't create servece"}
+        print(new_service.errors)
+        dataResponse = {"msg" : "couldn't create service"}
     return Response( dataResponse, status=status.HTTP_400_BAD_REQUEST)
 
 
 
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
-def list_servece(request : Request):
+def list_service(request : Request):
+    '''Through this function the services is displayed after executed authentication on the service provider'''
+
 
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
     
     else:
-      servece = Service.objects.all()
+      service = Service.objects.all()
 
       dataResponse = {
-        "Your servece" : ServiceSerializer(instance=servece, many=True).data
+        "Your service" : ServiceSerializer(instance=service, many=True).data
         }
     return Response(dataResponse, status=status.HTTP_400_BAD_REQUEST)
 
@@ -142,24 +158,28 @@ def list_servece(request : Request):
 
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
-def delete_servece(request: Request, servece_id):
+def delete_service(request: Request, service_id):
+    '''Through this function the services is deleted after executed authentication on the service provider'''
+
    
     if not request.user.is_authenticated:
         return Response({"msg" : "Not Allowed"}, status=status.HTTP_401_UNAUTHORIZED)
     
-    servece = Service.objects.get(id=servece_id)
-    servece.delete()
+    service = Service.objects.get(id=service_id)
+    service.delete()
     return Response({"msg" : "Deleted Successfully"})
 
 
 @api_view(["GET"])
-def search_servece(request: Request, type):
-    servece = Service.objects.filter(Service_type= type) 
-    if servece.exists():
+def search_service(request: Request, type):
+    '''With this function the service is searched by type'''
+
+    service = Service.objects.filter(service_type= type) 
+    if service.exists():
         data = {
         "msg": "Found it",
-        "servece": UserRegisterSerializer(instance=servece, many=True).data
+        "service": ServiceSerializer(instance=service, many=True).data
            }
         return Response(data)
     else:
-        return Response({"msg": "Not found servece!!"})
+        return Response({"msg": "Not found service!!"})
